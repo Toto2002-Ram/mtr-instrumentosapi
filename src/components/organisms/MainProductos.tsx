@@ -1,19 +1,47 @@
-import MTRArticle from "../molecules/MTR";
-import mtrparts from "../../data/MTR";
+import MTRArticle from "../molecules/MTRArticle";
+//import mtrparts from "../../data/MTR";
+import useFetch from "../../hooks/useFetch";
 
 
-const MainProductos = () => (
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-    {mtrparts.map((mtrparts) => (
-      <div className="h-full">
-        <MTRArticle 
-          key={mtrparts.name}
-          {...mtrparts}
-        />
-      </div>
-    ))}
-  </div>
-)
+const MainProductos = () => {
+  const { data, error, loading } = useFetch("/?format=json") //
+  if (data) console.log("Datos obtenidos:", data);
+  if (loading) return <p>Cargando...</p>;
+  if (error) return <p>Error de petición</p>;
+
+  const mtrparts = Array.isArray(data) ? data : [];
+
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+      {mtrparts.map((mtrpart) => (
+        <div key={mtrpart.id} className="h-full">
+          <MTRArticle {...mtrpart} />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/*
+const MainProductos = () => {
+  const { data, error, loading } = useFetch("/?format=json") //
+      if (data) console.log("Datos recibidos:", data) // para depurar 
+      if (loading) return <p>Cargando...</p>
+      if (error) return <p>Error de petición</p>
+
+  const autoparts = Array.isArray(data) ? data : []
+
+   return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+      {autoparts.map((autopart) => (
+        <div key={autopart.id} className="h-full">
+          <AutopartArticle {...autopart} />
+        </div>
+      ))}
+    </div>
+  )
+}
+*/
 
 export default MainProductos;
 /*

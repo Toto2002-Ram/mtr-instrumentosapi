@@ -5,7 +5,7 @@ const Footer = () => {
                 {/* Sección Nombre de la Página */}
                 <div>
                     <h3 className="text-xl font-bold mb-4">© 2026 MTR</h3>
-                    <p className="text-gray-400">Todos los derechos reservados</p>
+                    <p className="text-gray-400">&copy; Todos los derechos reservados</p>
                 </div>
 
                 {/* Sección Contactos */}

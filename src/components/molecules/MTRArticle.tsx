@@ -1,7 +1,7 @@
 import type { MTRInterface } from "../../interfaces/MTRinterface";
 
 // Los componentes React siempre en PascalCase y con nombres claros.
-const MTRArticle = ({ name, price, stock, imagen, categoria }: MTRInterface) => {
+const MTRArticle = ({name, price, stock, imagen, categoria }: MTRInterface) => {
   return (
     <article className="bg-white shadow-lg rounded-xl p-6 max-w-md mx-auto hover:shadow-xl transition-shadow duration-300">
       <div className="w-full h-56 flex items-center justify-center bg-gray-100 rounded-md mb-4">
