@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import mtrlogo from "../../../assets/logo-mtr.png";
+import mtrlogo from "../../../assets/mtrlogo.png";
 
 
 const Logo = () => (
